@@ -1,6 +1,7 @@
 ### Project description
 
-Application was created with [create-react-app](https://github.com/facebook/create-react-app) for education purposes.<br />
+Application has been based on previous [jewelry_shop project](https://github.com/JagodaBodnar/Jewelry-shop). Project has been refactored however to use ### Redux as source of state. It allowed me to see in a real life project the benefits and disadvantages of such approach.
+
 Product images has been downloaded from [pngguru](https://www.pngguru.com/) according to licese notification on the website no attribution is required for Non-Commercial-Use.<br />
 Home page images has been acquired as part of a free offert from [ADOBE STOCK](https://stock.adobe.com/).<br />
 Cart paypal feature requires APIkey from [PayPalSandbox](https://developer.paypal.com/), which means that own key has to be obtained in order to use it.<br />
@@ -8,7 +9,7 @@ Products content is managed through [Contentful](https://www.contentful.com/).<b
 
 ### Demo
 
-[Visualisation of the website](https://hopeful-lumiere-a6ae81.netlify.app)
+[Visualisation of the website](https://reverent-booth-2fd4f6.netlify.app/)
 
 ### Application features
 
@@ -22,6 +23,8 @@ Application is fully responsive and offers basic functionalities such as:
 - changing quantity of products in cart
 - calculatining summarised price in cart as well as PayPal payment
 - contact form
+
+NOTE: for more details please refer to [jewelry_shop project](https://github.com/JagodaBodnar/Jewelry-shop).
 
 ### Available Scripts:
 

@@ -1,10 +1,6 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 import { HeadingTwo } from "../reusableComponents/Heading.js";
 import Button from "../reusableComponents/Button.js";
-import { FaShoppingBag, FaHeart } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import { device } from "../globalStyles/Device";
 import { v4 as uuidv4 } from "uuid";
 import {
   addProductToCart,
@@ -17,7 +13,6 @@ import {
 import { connect } from "react-redux";
 import {
   StyledWishlistButtonContainer,
-  StyledTooltip,
   StyledAddToWishlist,
   StyledIsOnWishlist,
   StyledAddToCartButtonContainer,

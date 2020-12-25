@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { device } from "../../globalStyles/Device";
 import { FaHeart } from "react-icons/fa";
 

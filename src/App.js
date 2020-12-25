@@ -28,6 +28,7 @@ const App = ({
       setBestsellers();
     }
   };
+
   const getContentfulData = () => {
     client
       .getEntries({

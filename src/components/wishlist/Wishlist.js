@@ -7,7 +7,7 @@ import {
   addProductToCart,
   addProductToWishlist,
   removeProductFromWishlist,
-  handleWishlist,
+  toggleWishlistIcon,
 } from "../../actions/index";
 import {
   StyledEmptyWishlist,
@@ -129,7 +129,7 @@ const mapDispatchToProps = (dispatch) => {
     addProductToWishlist: (product) => dispatch(addProductToWishlist(product)),
     removeProductFromWishlist: (product) =>
       dispatch(removeProductFromWishlist(product)),
-    handleWishlist: (product) => dispatch(handleWishlist(product)),
+    toggleWishlistIcon: () => dispatch(toggleWishlistIcon()),
   };
 };
 

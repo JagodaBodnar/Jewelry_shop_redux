@@ -9,6 +9,7 @@ import {
   openWishlistPopUp,
   removeProductFromWishlist,
   closeWishlistPopUp,
+  toggleWishlistIcon,
 } from "../actions/index";
 import { connect } from "react-redux";
 import {
@@ -38,6 +39,7 @@ const ProductsListElement = ({
   handleDuplicateNamesOfProducts,
   openWishlistPopUp,
   closeWishlistPopUp,
+  toggleWishlistIcon,
 }) => {
   const handleWishlist = (productName) => {
     products.map((item) => {
@@ -58,20 +60,16 @@ const ProductsListElement = ({
     }, 3000);
   };
 
-  const [toggleWishlistLogo, setToggleWishlistLogo] = useState(wishList);
-  const toggle = () => {
-    setToggleWishlistLogo(!toggleWishlistLogo);
-  };
   return (
     <StyledProductListElement key={uuidv4()}>
       <StyledWishlistButtonContainer>
         <Button
           onClick={() => {
             addProductToWishlist(productName);
+            toggleWishlistIcon(productName);
             handleWishlist(productName);
             openWishlistPopUp();
             closePopUp();
-            // toggle();
           }}
         >
           {wishList === true ? <StyledIsOnWishlist /> : <StyledAddToWishlist />}
@@ -127,6 +125,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(addProductToWishlist(productName)),
     removeProductFromWishlist: (product) =>
       dispatch(removeProductFromWishlist(product)),
+    toggleWishlistIcon: () => dispatch(toggleWishlistIcon()),
     handleDuplicateNamesOfProducts: (product) =>
       dispatch(handleDuplicateNamesOfProducts(product)),
     openWishlistPopUp: () => dispatch(openWishlistPopUp()),

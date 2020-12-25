@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { actionTypes } from "../actions/actionTypes";
 import emailjs from "emailjs-com";
 
@@ -32,7 +33,7 @@ const shopTestReducer = (state = initialState, action) => {
     HANDLE_CALCULATE_CART_TOTALS,
     CLEAR_CART,
     CLEAR_CART_COUNTER,
-    HANDLE_WISHLIST,
+    TOGGLE_WISHLIST_ICON,
     HANDLE_DUPLICATE_NAMES_OF_PRODUCTS,
     ADD_PRODUCT_TO_WISHLIST,
     REMOVE_PRODUCT_FROM_WISHLIST,
@@ -154,10 +155,11 @@ const shopTestReducer = (state = initialState, action) => {
         ...state,
         cartCounter: 0,
       };
-    // case HANDLE_WISHLIST:
-    //   return {
-    //     ...state,
-    //   };
+    case TOGGLE_WISHLIST_ICON:
+      return {
+        ...state,
+        products: [...state.products],
+      };
     case HANDLE_DUPLICATE_NAMES_OF_PRODUCTS:
       const copyOfCart = [...state.cart];
       if (state.cart.length !== 0) {

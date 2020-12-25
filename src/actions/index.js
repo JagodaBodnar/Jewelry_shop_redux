@@ -12,7 +12,7 @@ const {
   HANDLE_CALCULATE_CART_TOTALS,
   CLEAR_CART,
   CLEAR_CART_COUNTER,
-  HANDLE_WISHLIST,
+  TOGGLE_WISHLIST_ICON,
   HANDLE_DUPLICATE_NAMES_OF_PRODUCTS,
   ADD_PRODUCT_TO_WISHLIST,
   REMOVE_PRODUCT_FROM_WISHLIST,
@@ -97,10 +97,9 @@ export const clearCartCounter = () => {
   };
 };
 
-export const handleWishlist = (product) => {
+export const toggleWishlistIcon = () => {
   return {
-    type: HANDLE_WISHLIST,
-    payload: product,
+    type: TOGGLE_WISHLIST_ICON,
   };
 };
 

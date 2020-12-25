@@ -1,6 +1,6 @@
 ### Project description
 
-Application has been based on previous [jewelry_shop project](https://github.com/JagodaBodnar/Jewelry-shop). Project has been refactored however to use ### Redux as source of state. It allowed me to see in a real life project the benefits and disadvantages of such approach.
+Application has been based on previous [jewelry_shop project](https://github.com/JagodaBodnar/Jewelry-shop). Project has been refactored however to use [REDUX](https://redux.js.org/) as source of state. It allowed me to see in a real life project the benefits and disadvantages of such approach.
 
 Product images has been downloaded from [pngguru](https://www.pngguru.com/) according to licese notification on the website no attribution is required for Non-Commercial-Use.<br />
 Home page images has been acquired as part of a free offert from [ADOBE STOCK](https://stock.adobe.com/).<br />

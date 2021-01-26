@@ -2,7 +2,11 @@ import React, { useEffect } from "react";
 import { BrowserRouter } from "react-router-dom";
 import MainTemplate from "./templates/MainTemplate";
 import { connect } from "react-redux";
-import { fetchProducts, handleCalculateCartTotals } from "./actions";
+import {
+  fetchProducts,
+  handleCalculateCartTotals,
+  resetFilters,
+} from "./actions";
 import { client } from "./data/contentfulData";
 import Router from "./routing/Router";
 import { setBestsellers } from "./actions/index";
@@ -13,6 +17,9 @@ const App = ({
   cart,
   cartCounter,
   handleCalculateCartTotals,
+  wishlist,
+  products,
+  resetFilters,
 }) => {
   const setContentfulData = (data) => {
     if (data.length !== 0) {
@@ -28,6 +35,21 @@ const App = ({
       setBestsellers();
     }
   };
+  const forEachItemFromWishlist = () => {
+    const returnElementsFromWishlist = wishlist.map((item) => {
+      return item.productName;
+    });
+    console.log(returnElementsFromWishlist);
+    products.map((product) => {
+      returnElementsFromWishlist.forEach((item) => {
+        if (product.productName === item) {
+          return (product.wishList = true);
+        }
+      });
+    });
+  };
+
+  forEachItemFromWishlist();
 
   const getContentfulData = () => {
     client
@@ -42,6 +64,7 @@ const App = ({
 
   useEffect(() => {
     getContentfulData();
+    resetFilters();
   }, []);
 
   useEffect(() => {
@@ -63,6 +86,7 @@ const mapStateToProps = (state) => {
     emerald: state.emerald,
     cart: state.cart,
     cartCounter: state.cartCounter,
+    wishlist: state.wishlist,
   };
 };
 const mapDispatchToProps = (dispatch) => {
@@ -70,6 +94,7 @@ const mapDispatchToProps = (dispatch) => {
     fetchProducts: (response) => dispatch(fetchProducts(response)),
     setBestsellers: () => dispatch(setBestsellers()),
     handleCalculateCartTotals: () => dispatch(handleCalculateCartTotals()),
+    resetFilters: () => dispatch(resetFilters()),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -29,6 +29,7 @@ const WishlistPopUp = ({ wishlist, openPopUp }) => {
                   productQuantity,
                   productDesc,
                   productImage,
+                  wishList,
                 } = item;
                 return (
                   <StyledProductListElement key={uuidv4()}>
@@ -41,6 +42,7 @@ const WishlistPopUp = ({ wishlist, openPopUp }) => {
                           productImage,
                           productDesc,
                           productQuantity,
+                          wishList,
                         },
                       }}
                     >
@@ -51,9 +53,6 @@ const WishlistPopUp = ({ wishlist, openPopUp }) => {
                       <HeadingTwo>{productName}</HeadingTwo>
                       <HeadingTwo>{productPrice}$</HeadingTwo>
                     </StyledLink>
-                    {/* <Button close onClick={() => handleWishlist(productName)}>
-                    <IoIosClose />
-                  </Button> */}
                   </StyledProductListElement>
                 );
               })}

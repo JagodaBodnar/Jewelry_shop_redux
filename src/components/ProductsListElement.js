@@ -53,7 +53,7 @@ const ProductsListElement = ({
         }
       }
     });
-  }; // wishList for item is not working properly there is a delay how to fix differently?
+  };
   const closePopUp = () => {
     setTimeout(() => {
       closeWishlistPopUp();

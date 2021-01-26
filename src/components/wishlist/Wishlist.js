@@ -58,6 +58,7 @@ const Wishlist = ({
                 productPrice,
                 productQuantity,
                 productImage,
+                wishList,
               } = item;
               return (
                 <>
@@ -79,6 +80,7 @@ const Wishlist = ({
                             productPrice,
                             productImage,
                             productQuantity,
+                            wishList,
                           },
                         }}
                       >

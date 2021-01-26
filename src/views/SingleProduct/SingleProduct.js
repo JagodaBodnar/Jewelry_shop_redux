@@ -32,6 +32,7 @@ const SingleProduct = (props) => {
     productDesc,
     wishList,
   } = props.location.state;
+
   const [toggleWishlistLogo, setToggleWishlistLogo] = useState(wishList);
   const toggle = () => {
     setToggleWishlistLogo(!toggleWishlistLogo);
@@ -39,7 +40,6 @@ const SingleProduct = (props) => {
   const products = useSelector((state) => state.products);
   const wishlist = useSelector((state) => state.wishlist);
   const dispatch = useDispatch();
-
   const handleWishlist = (productName) => {
     products.map((item) => {
       if (item.productName === productName) {
@@ -79,7 +79,7 @@ const SingleProduct = (props) => {
                 closePopUp();
               }}
             >
-              {wishList ? ( //something is not working when adding on product page first
+              {wishList ? (
                 toggleWishlistLogo ? (
                   <StyledIsOnWishlist />
                 ) : (

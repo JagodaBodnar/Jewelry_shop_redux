@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export const StyledFooterContainer = styled.div`
   bottom: 0;
-  height: 10vh;
+  min-height: 10vh;
   border-top: solid 1px #ececec;
   display: flex;
   justify-content: space-evenly;

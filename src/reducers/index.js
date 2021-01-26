@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { actionTypes } from "../actions/actionTypes";
 import emailjs from "emailjs-com";
 
@@ -66,8 +65,6 @@ const shopTestReducer = (state = initialState, action) => {
       emeralds.push(sortedProducts[12], sortedProducts[43]);
       const rubys = [];
       rubys.push(sortedProducts[45], sortedProducts[47]);
-      console.log(bestsellers);
-      console.log(state.bestseller);
       return {
         ...state,
         bestseller: [...bestsellers],
@@ -85,12 +82,18 @@ const shopTestReducer = (state = initialState, action) => {
         isCartOpen: false,
       };
     case ADD_PRODUCT_TO_CART:
-      const addProductToCart = state.products.filter((product) => {
+      const addProductToCart = state.products.find((product) => {
         return product.productName === payload;
       });
+
+      const isProductAlreadyInCart =
+        state.cart.filter((e) => e.productName === `${payload}`).length > 0;
+
       return {
         ...state,
-        cart: [...new Set([...state.cart, ...addProductToCart])],
+        cart: isProductAlreadyInCart
+          ? [...new Set([...state.cart])]
+          : [...new Set([...state.cart, addProductToCart])],
         cartCounter: state.cartCounter + 1,
       };
     case REMOVE_PRODUCT_FROM_CART:
@@ -177,9 +180,14 @@ const shopTestReducer = (state = initialState, action) => {
       const setProductOnWishlist = state.products.filter((product) => {
         return product.productName === payload;
       });
+      const isProductAlreadyOnWishlist =
+        state.wishlist.filter((e) => e.productName === `${payload}`).length > 0;
+
       return {
         ...state,
-        wishlist: [...new Set([...state.wishlist, ...setProductOnWishlist])],
+        wishlist: isProductAlreadyOnWishlist
+          ? [...new Set([...state.wishlist])]
+          : [...new Set([...state.wishlist, ...setProductOnWishlist])],
       };
     case REMOVE_PRODUCT_FROM_WISHLIST:
       const remainedWishProducts = state.wishlist.filter((product) => {
@@ -266,7 +274,7 @@ const shopTestReducer = (state = initialState, action) => {
     case RESET_FILTERS:
       return {
         ...state,
-        products: [...state.productsToFilter], // is it correct? how to get data from Contentful
+        products: [...state.productsToFilter],
         categoryFilter: [],
         filterToRemove: [],
       };
